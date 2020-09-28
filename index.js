@@ -1,13 +1,13 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+const  express = require('express')
+const  bodyParser = require('body-parser')
 const app = express();
 
-const port = 3000;
+const port = 3000
 
 
 // Configuring body parser middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 
 
@@ -18,31 +18,31 @@ let books = [];
 
 
 app.get('/', (req, res) =>
-  res.send('hello world, Una is using Express'));
+  res.send('hello world, from Alasdair!'))
 
 app.get('/bananas', (req, res) =>
-  res.send('hello world, this is bananas'));
+  res.send('hello world, this is a sad way to go'))
 
 
 
   app.post('/book', (req, res) => {
-      const book = req.body;
-      books.push(book);
+    const book = req.body;
+    books.push(book);
 
-      res.send ('book has been added to the database');
-      console.log(`book name is ${book.Name} number of book is ${books.length}`);
+    res.send ('book has been added to the database');
+    console.log(`book name is ${book.name} number of book is ${books.length}`);
 
-  });
+});
 
   app.get('/books', (req, res) => {
       res.send(books);
-  });
+  })
 
-  app.get('/books/:id', (req,res) => {
+  app.get('/books/:id', (req, res) => {
 
      let id = req.params.id;
       res.json(books[id]);
-  });
+  })
 
   app.delete('/books/:id',(req, res) => {
     let id = req.params.id; 
@@ -50,9 +50,8 @@ app.get('/bananas', (req, res) =>
     books.splice(req.params.id, 1);
     res.send(books);
 
-  });
+  })
 
-app.listen(port,  () => console.log(`Example app listening on 
-  ${port}!`));
+app.listen(port,  () => console.log(`Example app listening on port ${port}!`))
 
 
