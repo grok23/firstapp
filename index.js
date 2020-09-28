@@ -30,7 +30,7 @@ app.get('/bananas', (req, res) =>
     books.push(book);
 
     res.send ('book has been added to the database');
-    console.log(`book name is ${book.name} number of book is ${books.length}`);
+    console.log(`book name is ${book.Name} number of book is ${books.length}`);
 
 });
 
