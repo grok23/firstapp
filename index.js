@@ -46,7 +46,7 @@ app.get('/bananas', (req, res) =>
 
   app.delete('/books/:id',(req, res) => {
     let id = req.params.id; 
-    console.log(`removing book ${books[id].name}`)
+    console.log(`removing book ${books[id].Name}`)
     books.splice(req.params.id, 1);
     res.send(books);
 
