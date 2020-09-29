@@ -16,15 +16,16 @@ let books = [];
 
 
 
-
+//routing request and response for localhost
 app.get('/', (req, res) =>
   res.send('hello world, from Alasdair!'))
 
+  //routing request and response for /bananas
 app.get('/bananas', (req, res) =>
   res.send('hello world, this is a sad way to go'))
 
 
-
+  //routing request and response for /book will allow us to push to the book array
   app.post('/book', (req, res) => {
     const book = req.body;
     books.push(book);
@@ -52,6 +53,7 @@ app.get('/bananas', (req, res) =>
 
   })
 
+  //listening to the server
 app.listen(port,  () => console.log(`Example app listening on port ${port}!`))
 
 
