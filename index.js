@@ -20,29 +20,33 @@ let books = [];
 app.get('/', (req, res) =>
   res.send('hello world, from Alasdair!'))
 
-  //routing request and response for /bananas
+//routing request and response for /bananas
 app.get('/bananas', (req, res) =>
   res.send('hello world, this is a sad way to go'))
 
+//"silly" routing request 
+app.get('/zanyroute', (req, res) =>
+  res.send('Send in the clowns!'))
 
-  //routing request and response for /book will allow us to push to the book array
-  app.post('/book', (req, res) => {
-    const book = req.body;
-    books.push(book);
 
-    res.send ('book has been added to the database');
-    console.log(`book name is ${book.Name} number of book is ${books.length}`);
+//routing request and response for /book will allow us to push to the book array
+app.post('/book', (req, res) => {
+  const book = req.body;
+  books.push(book);
+
+res.send ('book has been added to the database');
+  console.log(`book name is ${book.Name} number of book is ${books.length}`);
 
 });
 
   app.get('/books', (req, res) => {
-      res.send(books);
+    res.send(books);
   })
 
   app.get('/books/:id', (req, res) => {
 
-     let id = req.params.id;
-      res.json(books[id]);
+    let id = req.params.id;
+    res.json(books[id]);
   })
 
   app.delete('/books/:id',(req, res) => {
